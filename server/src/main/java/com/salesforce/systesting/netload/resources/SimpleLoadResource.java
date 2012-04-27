@@ -16,8 +16,7 @@ import com.google.common.base.Optional;
 @Path("/simple-load")
 @Produces(MediaType.TEXT_PLAIN)
 public class SimpleLoadResource {
-	private static final Logger log = LoggerFactory
-			.getLogger(SimpleLoadResource.class);
+	private static final Logger log = LoggerFactory.getLogger(SimpleLoadResource.class);
 	private final Integer defaultSleep;
 
 	public SimpleLoadResource(Integer defaultSleep) {
@@ -31,6 +30,6 @@ public class SimpleLoadResource {
 			InterruptedException {
 		log.info(String.format("request from %s", hsr.getRemoteAddr()));
 		Thread.sleep(sleepPeriod.or(defaultSleep));
-		return Long.toString(System.currentTimeMillis());
+		return Long.toString(System.currentTimeMillis()) + "\n";
 	}
 }
