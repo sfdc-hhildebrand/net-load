@@ -1,6 +1,7 @@
 package com.salesforce.systesting.netload.resources;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -19,7 +20,8 @@ public class SimpleDiffResourceTest {
 		when(hsr.getRemoteAddr()).thenReturn("Test client @ foo.bar:666");
 		SimpleDiffResource resource = new SimpleDiffResource();
 		String diffResult = resource.view(getFile1(), getFile2(), hsr);
-		assertEquals(getExpectedDiffResult(),diffResult);
+		assertTrue(diffResult.contains(getExpectedDiffResult(1)));
+		assertTrue(diffResult.contains(getExpectedDiffResult(2)));
 	}
 	@Test
 	public void testGetView() throws Exception {
@@ -27,11 +29,12 @@ public class SimpleDiffResourceTest {
 		when(hsr.getRemoteAddr()).thenReturn("Test client @ foo.bar:666");
 		SimpleDiffResource resource = new SimpleDiffResource();
 		String diffResult = resource.view(hsr);
-		assertEquals(getExpectedDiffResult(),diffResult);
+		assertTrue(diffResult.contains(getExpectedDiffResult(1)));
+		assertTrue(diffResult.contains(getExpectedDiffResult(2)));
 	}
 
-	private String getExpectedDiffResult() throws IOException {
-		return IOUtils.toString(getClass().getClassLoader().getResourceAsStream("diff.html"));
+	private String getExpectedDiffResult(int part) throws IOException {
+		return IOUtils.toString(getClass().getClassLoader().getResourceAsStream("diff" + part + ".html"));
 	}
 
 	private String getFile2() throws IOException {

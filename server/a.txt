@@ -1,0 +1,32 @@
+00D3000000010jN
+    TEST_FAILURES
+        Tests Run: 295
+        Number of Failures: 42
+        Code Coverage: 82
+        ID: 01p500000005HxSAAU
+        Type: Class
+        In: kt.TestRoleTreeController.testMarkupGeneration
+        line -1, column -1: Set of SOBJECT:User not allowed
+        Stack Trace:
+
+        ID: 01p50000000559bAAA
+        Type: Class
+        In: quotesync.QuoteSyncTestSuite.testCreateDuplicateOppLine
+        System.DmlException: Insert failed. First exception on row 0; first error: STRING_TOO_LONG, Cold-Side Temp: data value too large: OpportunityLineItem_oppline_cold_side_temp__c_1333033754014 (max length=20): [OppLine_Cold_Side_Temp__c]
+        Stack Trace:
+        Class.quotesync.QuoteSyncTestSuite.createOppLines: line 333, column 1
+        Class.quotesync.QuoteSyncTestSuite.testCreateDuplicateOppLine: line 1905, column 1
+        ID: 01p50000000559bAAA
+        Type: Class
+        In: quotesync.QuoteSyncTestSuite.testCreateDuplicateQuoteLine
+        System.DmlException: Insert failed. First exception on row 0; first error: STRING_TOO_LONG, Cold-Side Temp: data value too large: QuoteLineItem_quoteline_cold_side_temp__c_1333033754567 (max length=20): [QuoteLine_Cold_Side_Temp__c]
+        Stack Trace:
+        Class.quotesync.QuoteSyncTestSuite.createQuoteLines: line 407, column 1
+        Class.quotesync.QuoteSyncTestSuite.testCreateDuplicateQuoteLine: line 1928, column 1
+        ID: 01p50000000559bAAA
+        Type: Class
+        In: quotesync.QuoteSyncTestSuite.testCreateQuoteWithQuoteLine
+        System.DmlException: Insert failed. First exception on row 0; first error: STRING_TOO_LONG, Cold-Side Temp: data value too large: OpportunityLineItem_oppline_cold_side_temp__c_1333033762767 (max length=20): [OppLine_Cold_Side_Temp__c]
+        Stack Trace:
+        Class.quotesync.QuoteSyncTestSuite.createOppLines: line 333, column 1
+        Class.quotesync.QuoteSyncTestSuite.testCreateQuoteWithQuoteLine: line 641, column 1

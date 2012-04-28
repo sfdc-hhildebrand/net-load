@@ -1,0 +1,26 @@
+00D3000000010jN
+    TEST_FAILURES
+        Tests Run: 295
+        Number of Failures: 41
+        Code Coverage: 83
+        ID: 01p50000000559bAAA
+        Type: Class
+        In: quotesync.QuoteSyncTestSuite.testCreateDuplicateOppLine
+        System.DmlException: Insert failed. First exception on row 0; first error: STRING_TOO_LONG, Cold-Side Temp: data value too large: OpportunityLineItem_oppline_cold_side_temp__c_1334464465348 (max length=20): [OppLine_Cold_Side_Temp__c]
+        Stack Trace:
+        Class.quotesync.QuoteSyncTestSuite.createOppLines_rLIST_OpportunityLineItem__0Opportunity_1Integer_2Boolean_3Boolean: line 333, column 1
+        Class.quotesync.QuoteSyncTestSuite.testCreateDuplicateOppLine: line 1905, column 1
+        ID: 01p50000000559bAAA
+        Type: Class
+        In: quotesync.QuoteSyncTestSuite.testCreateDuplicateQuoteLine
+        System.DmlException: Insert failed. First exception on row 0; first error: STRING_TOO_LONG, Cold-Side Temp: data value too large: QuoteLineItem_quoteline_cold_side_temp__c_1334464465887 (max length=20): [QuoteLine_Cold_Side_Temp__c]
+        Stack Trace:
+        Class.quotesync.QuoteSyncTestSuite.createQuoteLines_rLIST_QuoteLineItem__0Quote_1Integer_2Boolean_3Boolean: line 407, column 1
+        Class.quotesync.QuoteSyncTestSuite.testCreateDuplicateQuoteLine: line 1928, column 1
+        ID: 01p50000000559bAAA
+        Type: Class
+        In: quotesync.QuoteSyncTestSuite.testCreateQuoteWithQuoteLine
+        System.DmlException: Insert failed. First exception on row 0; first error: STRING_TOO_LONG, Cold-Side Temp: data value too large: OpportunityLineItem_oppline_cold_side_temp__c_1334464466480 (max length=20): [OppLine_Cold_Side_Temp__c]
+        Stack Trace:
+        Class.quotesync.QuoteSyncTestSuite.createOppLines_rLIST_OpportunityLineItem__0Opportunity_1Integer_2Boolean_3Boolean: line 333, column 1
+        Class.quotesync.QuoteSyncTestSuite.testCreateQuoteWithQuoteLine: line 641, column 1

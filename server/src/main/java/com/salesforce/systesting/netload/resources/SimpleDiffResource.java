@@ -1,11 +1,13 @@
 package com.salesforce.systesting.netload.resources;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.FormParam;
@@ -28,6 +30,7 @@ public class SimpleDiffResource {
 	public SimpleDiffResource() {
 	}
 	@GET
+	@Produces(MediaType.TEXT_HTML)
 	@Path("view")
 	public String view(@Context HttpServletRequest hsr) throws Exception {
 		log.info(String.format("request from %s", hsr.getRemoteAddr()));
@@ -69,11 +72,23 @@ public class SimpleDiffResource {
         
     }
     
+    public String getScriptFromFile(String path, String filename, String extension) throws FileNotFoundException, IOException {
+        File f = new File(path + filename + "." + extension);
+        BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+        String s;
+        StringBuilder script = new StringBuilder();
+        while ((s = r.readLine()) != null) {
+            script.append(s).append('\n');
+        }
+        r.close();
+        return script.toString();
+    } 
+    
 	private String generateDiff(String fileContent1, String fileContent2) throws IOException {
 		createFile("a", fileContent1);
 		createFile("b", fileContent2);
 		Runtime.getRuntime().exec(new String[] {"bash", "-c", "diff -b -U 50 -N a.txt b.txt | /usr/local/bin/diffh > diff.html"});
-		return getScriptFromFile("diff", "html");
+		return getScriptFromFile(System.getProperty("user.dir") + "/","diff", "html");
 	}
 	
 	
